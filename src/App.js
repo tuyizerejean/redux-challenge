@@ -29,7 +29,6 @@ function App(props) {
         break
       case 'edit':
         e.preventDefault()
-        console.log('something is ')
         e.target.elements.fname.value = data.fname
         e.target.elements.lname.value = data.lname
         e.target.elements.phone.value = data.phone
@@ -46,39 +45,39 @@ function App(props) {
     deleteAttendee(id)
   }
   return (
-    <div className="text-sm">
-      <div className='text-white flex justify-between items-center h-20 max-w-[1240px] mx-auto bg-white shadow-md m-2 p-4'>
-        <p className='text-green-200 text-[40px] '><FaLeaf></FaLeaf></p>
-        <div className="text-l bg-teal-200 text-teal-800 rounded py-4 px-12">Attending: {attendees.filter((attendee) => attendee.attending).length}</div>
-        <div className="text-l bg-red-200 text-red-800 rounded py-4 px-12">Wont Attend: {attendees.filter((attendee) => !attendee.attending).length}</div>
+    <div className="text-sm ">
+      <div className='text-blue flex justify-between items-center h-20 max-w-[1240px] mx-auto bg-white shadow-md m-2 p-4'>
+        <p className='text-[20px] '>ZATEC Redux Challenge</p>
+        <div className=" py-4 px-12">Number of attendee: {attendees.filter((attendee) => attendee.attending).length}</div>
+        <div className=" py-4 px-12"> Number of Not Attend: {attendees.filter((attendee) => !attendee.attending).length}</div>
       </div>
       <div className='flex max-w-[1240px] mx-auto h-[700px] justify-between' >
         <div className='bg-white h-full w-[615px] shadow-md p-8 justify-center items-center'>
           <form onSubmit={handleForm}>
             <label htmlFor="name" className="text-gray-800 text-sm font-bold leading-tight tracking-normal">First Name</label>
-            <input required name="fname" type="text" id="name" className="mb-5 mt-2 text-gray-600 focus:outline-none focus:border focus:border-teal-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border" placeholder="John" />
+            <input required name="fname" type="text" id="name" className="mb-5 mt-2 text-gray-600 focus:outline-none focus:border focus:border-teal-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border" placeholder="please fill the first name" />
             <label  htmlFor="name" className="text-gray-800 text-sm font-bold leading-tight tracking-normal">Last Name</label>
-            <input required name="lname"  type="text" id="name" className="mb-5 mt-2 text-gray-600 focus:outline-none focus:border focus:border-teal-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border" placeholder="Doe" />
+            <input required name="lname"  type="text" id="name" className="mb-5 mt-2 text-gray-600 focus:outline-none focus:border focus:border-teal-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border" placeholder="please fill the second name" />
             <label htmlFor="name" className="text-gray-800 text-sm font-bold leading-tight tracking-normal">Telephone</label>
-            <input required name="phone"  type="text" id="name" className="mb-5 mt-2 text-gray-600 focus:outline-none focus:border focus:border-teal-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border" placeholder="078XXXXXXX" />
+            <input required name="phone"  type="text" id="name" className="mb-5 mt-2 text-gray-600 focus:outline-none focus:border focus:border-teal-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border" placeholder=" Please fill the telephone number" />
             <label htmlFor="name" className="text-gray-800 text-sm font-bold leading-tight tracking-normal">Email</label>
-            <input required name="email"  type="text" id="name" className="mb-5 mt-2 text-gray-600 focus:outline-none focus:border focus:border-teal-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border" placeholder="example@gmail.com" />
-            <label htmlFor="name" className="text-gray-800 text-sm font-bold leading-tight tracking-normal">Will Attend</label>
+            <input required name="email"  type="text" id="name" className="mb-5 mt-2 text-gray-600 focus:outline-none focus:border focus:border-teal-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border" placeholder="Enter the email address" />
+            <label htmlFor="name" className="text-gray-800 text-sm font-bold leading-tight tracking-normal">Will  you Attend</label>
             <input name="attending"  type="checkbox" id="name" className="mb-5 mt-2 text-gray-600 focus:outline-none focus:border focus:border-teal-700 font-normal h-10 flex items-center pl-3 text-sm border-gray-300 rounded border" />
-            <button className="bg-teal-200 text-teal-700 font-semibold py-3 px-10 border border-teal-500 rounded" type='submit'>
-              Save
+            <button className="bg-cyan-600 text-teal-700 font-semibold py-3 px-10 border border-teal-500 rounded" type='submit'>
+              Submit
             </button>
           </form>
         </div>
         <div className='bg-white h-full w-[615px] shadow-md block p-4 overflow-auto'>
           {attendees.map((attendee) => (
-            <div className={attendee.attending ? 'shadow-md h-15 border-l-8 border-l-teal-200 w-full flex my-2 justify-between items-center p-4' : 'shadow-md h-15 border-l-8 border-l-red-200 w-full flex my-2 justify-between items-center p-4'} key={attendee.id}>
+            <div className={attendee.attending ? 'shadow-md h-15 bg-gray-200  w-full flex my-2 justify-between items-center p-4' : 'shadow-md h-15  w-full flex my-2 justify-between items-center bg-green-400 p-4'} key={attendee.id}>
               <p>{`${attendee.fname} ${attendee.lname}`}</p>
               <div className='w-[100px] flex justify-between'>
-                <button onClick={() => handleForm('edit', attendee)} className="bg-teal-200 text-teal-800 p-3 border border-teal-800 rounded">
+                <button onClick={() => handleForm('edit', attendee)} className="bg-cyan-600 text-teal-800 p-3 border border-teal-800 rounded">
                   <FaPen></FaPen>
                 </button>
-                <button onClick={()=>{ handleDelete(attendee.id) } } className="bg-red-200 text-red-800 p-3 border border-red-800 rounded">
+                <button onClick={()=>{ handleDelete(attendee.id) } } className="bg-rose-400 text-red-800 p-3 border border-red-800 rounded">
                   <FaRegTrashAlt></FaRegTrashAlt>
                 </button>
               </div>
