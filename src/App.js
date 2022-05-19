@@ -45,8 +45,8 @@ function App(props) {
     deleteAttendee(id)
   }
   return (
-    <div className="text-sm ">
-      <div className='text-blue flex justify-between items-center h-20 max-w-[1240px] mx-auto bg-white shadow-md m-2 p-4'>
+    <div className="text-sm">
+      <div className='text-blue flex justify-between items-center h-20 mx-auto bg-cyan-600 shadow-md mb-4 p-4'>
         <p className='text-[20px] '>ZATEC Redux Challenge</p>
         <div className=" py-4 px-12">Number of attendee: {attendees.filter((attendee) => attendee.attending).length}</div>
         <div className=" py-4 px-12"> Number of Not Attend: {attendees.filter((attendee) => !attendee.attending).length}</div>
@@ -70,6 +70,7 @@ function App(props) {
           </form>
         </div>
         <div className='bg-white h-full w-[615px] shadow-md block p-4 overflow-auto'>
+          <h1 className='text-center'>Attendance List</h1>
           {attendees.map((attendee) => (
             <div className={attendee.attending ? 'shadow-md h-15 bg-green-400  w-full flex my-2 justify-between items-center p-4' : 'shadow-md h-15  w-full flex my-2 justify-between items-center bg-green-400 bg-gray-200 p-4'} key={attendee.id}>
               <p>{`${attendee.fname} ${attendee.lname}`}</p>
