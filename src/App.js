@@ -71,7 +71,7 @@ function App(props) {
         </div>
         <div className='bg-white h-full w-[615px] shadow-md block p-4 overflow-auto'>
           {attendees.map((attendee) => (
-            <div className={attendee.attending ? 'shadow-md h-15 bg-gray-200  w-full flex my-2 justify-between items-center p-4' : 'shadow-md h-15  w-full flex my-2 justify-between items-center bg-green-400 p-4'} key={attendee.id}>
+            <div className={attendee.attending ? 'shadow-md h-15 bg-green-400  w-full flex my-2 justify-between items-center p-4' : 'shadow-md h-15  w-full flex my-2 justify-between items-center bg-green-400 bg-gray-200 p-4'} key={attendee.id}>
               <p>{`${attendee.fname} ${attendee.lname}`}</p>
               <div className='w-[100px] flex justify-between'>
                 <button onClick={() => handleForm('edit', attendee)} className="bg-cyan-600 text-teal-800 p-3 border border-teal-800 rounded">
