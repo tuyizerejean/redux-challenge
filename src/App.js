@@ -46,7 +46,7 @@ function App(props) {
   }
   return (
     <div className="text-sm">
-      <div className='text-blue flex justify-between items-center h-20 mx-auto bg-cyan-600 shadow-md mb-4 p-4'>
+      <div className='text-blue flex justify-between items-center h-20 mx-auto bg-cyan-600  sticky top-0 z-50 shadow-md mb-4 p-4'>
         <p className='text-[20px] '>ZATEC Redux Challenge</p>
         <div className=" py-4 px-12">Number of attendee: {attendees.filter((attendee) => attendee.attending).length}</div>
         <div className=" py-4 px-12"> Number of Not Attend: {attendees.filter((attendee) => !attendee.attending).length}</div>
@@ -64,7 +64,7 @@ function App(props) {
             <input required name="email"  type="text" id="name" className="mb-5 mt-2 text-gray-600 focus:outline-none focus:border focus:border-teal-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border" placeholder="Enter the email address" />
             <label htmlFor="name" className="text-gray-800 text-sm font-bold leading-tight tracking-normal">Will  you Attend</label>
             <input name="attending"  type="checkbox" id="name" className="mb-5 mt-2 text-gray-600 focus:outline-none focus:border focus:border-teal-700 font-normal h-10 flex items-center pl-3 text-sm border-gray-300 rounded border" />
-            <button className="bg-cyan-600 text-teal-700 font-semibold py-3 px-10 border border-teal-500 rounded" type='submit'>
+            <button className="bg-cyan-600 text-teal-700 font-semibold py-3 px-10 border border-teal-500 ml-96 rounded" type='submit'>
               Submit
             </button>
           </form>
